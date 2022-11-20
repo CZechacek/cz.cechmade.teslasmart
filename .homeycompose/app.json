@@ -1,0 +1,54 @@
+{
+  "id": "com.teslasmart",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Tesla Smart"
+  },
+  "description": {
+    "en": "Support for Tesla Smart devices."
+  },
+  "category": [
+    "lights"
+  ],
+  "tags": { "en": ["tesla", "smart"] },
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Vladimír Čech",
+    "email": "vladce@cechmade.cz"
+  },
+  "brandColor": "#94a2af",
+  "contributors": {
+    "translators": [
+      {
+        "name": "Vladimír Čech"
+      }
+    ],
+    "developers": [
+      {
+        "name": "Vladimír Čech"
+      }
+    ]
+  },
+  "support": "mailto://vladce@cechmade.cz",
+  "source": "https://github.com/CZechacek/com.teslasmart",
+  "bugs": {
+    "url": "https://github.com/CZechacek/com.teslasmart/issues"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "vladce"
+      }
+    }
+  }
+}
