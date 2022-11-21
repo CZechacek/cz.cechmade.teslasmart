@@ -16,6 +16,12 @@
   "category": [
     "lights"
   ],
+  "tags": {
+    "en": [
+      "tesla",
+      "smart"
+    ]
+  },
   "permissions": [],
   "images": {
     "small": "/assets/images/small.png",
@@ -24,9 +30,33 @@
   },
   "author": {
     "name": "Vladimír Čech",
-    "email": "home@cechmade.cz"
+    "email": "vladce@cechmade.cz"
   },
   "brandColor": "#94a2af",
+  "contributors": {
+    "translators": [
+      {
+        "name": "Vladimír Čech"
+      }
+    ],
+    "developers": [
+      {
+        "name": "Vladimír Čech"
+      }
+    ]
+  },
+  "support": "mailto://vladce@cechmade.cz",
+  "source": "https://github.com/CZechacek/com.teslasmart",
+  "bugs": {
+    "url": "https://github.com/CZechacek/com.teslasmart/issues"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "vladce"
+      }
+    }
+  },
   "drivers": [
     {
       "name": {
