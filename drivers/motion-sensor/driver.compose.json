@@ -1,17 +1,15 @@
 {
   "name": {
-    "en": "Smoke Sensor"
+    "en": "Motion Sensor"
   },
   "class": "sensor",
   "capabilities": [
-    "measure_battery",
     "alarm_battery",
-    "alarm_smoke",
-    "alarm_tamper"
+    "alarm_motion"
   ],
   "energy": {
     "batteries": [
-      "CR123A"
+      "CR2450"
     ]
   },
   "platforms": [
@@ -21,16 +19,14 @@
     "zigbee"
   ],
   "zigbee": {
-    "manufacturerName": "_TYZB01_qiplt4jq",
-    "productId": "TS0205",
+    "manufacturerName": "_TYZB01_dr6sduka",
+    "productId": "TS0202",
     "endpoints": {
       "1": {
         "clusters": [
           0,
-          1,
-          1280
-        ],
-        "bindings": [
+          1024,
+          1030,
           1280
         ]
       }

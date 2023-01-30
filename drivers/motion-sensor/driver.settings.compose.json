@@ -1,0 +1,38 @@
+[
+    {
+      "id": "alarm_motion_reset_window",
+      "type": "number",
+      "label": {
+        "en": "Disable motion alarm after"
+      },
+      "hint": {
+        "en": "This setting will disable the motion alarm after the given time (in seconds) has expired after the last motion has been detected. Every time motion is observed by the device it will reset this timeout.\nRange: 60 - 86400, default: 300 [s]"
+      },
+      "value": 60,
+      "attr": {
+        "min": 60,
+        "max": 86400
+      }
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Expert settings",
+        "nl": "Expert instellingen"
+      },
+      "collapsed": true,
+      "children": [
+        {
+          "id": "hacked_alarm_motion_reset_window",
+          "type": "checkbox",
+          "value": false,
+          "label": {
+            "en": "Hacked sensor"
+          },
+          "hint": {
+            "en": "By soldering two contact points on the PCB it's possible to reduce the motion blind time to 5 seconds instead of the minimum 60 seconds. Enabling this setting will allow you to override the minimum of 60 seconds for cancelling the alarm and will set it to 5 seconds."
+          }
+        }
+      ]
+    }
+  ]

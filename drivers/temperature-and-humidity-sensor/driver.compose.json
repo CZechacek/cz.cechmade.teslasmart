@@ -1,17 +1,17 @@
 {
   "name": {
-    "en": "Smoke Sensor"
+    "en": "Temperature and Humidity Sensor"
   },
   "class": "sensor",
   "capabilities": [
-    "measure_battery",
+    "measure_humidity",
+    "measure_temperature",
     "alarm_battery",
-    "alarm_smoke",
-    "alarm_tamper"
+    "measure_battery"
   ],
   "energy": {
     "batteries": [
-      "CR123A"
+      "CR2032"
     ]
   },
   "platforms": [
@@ -21,17 +21,15 @@
     "zigbee"
   ],
   "zigbee": {
-    "manufacturerName": "_TYZB01_qiplt4jq",
-    "productId": "TS0205",
+    "manufacturerName": "_TZ3000_j5fbnjeh",
+    "productId": "TS0201",
     "endpoints": {
       "1": {
         "clusters": [
           0,
           1,
-          1280
-        ],
-        "bindings": [
-          1280
+          1026,
+          1029
         ]
       }
     },

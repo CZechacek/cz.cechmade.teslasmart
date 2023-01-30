@@ -1,6 +1,6 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
-  "id": "com.teslasmart",
+  "id": "cz.cechmade.teslasmart",
   "version": "1.0.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
@@ -19,7 +19,9 @@
   "tags": {
     "en": [
       "tesla",
-      "smart"
+      "smart",
+      "light",
+      "sensor"
     ]
   },
   "permissions": [],
@@ -60,6 +62,91 @@
   "drivers": [
     {
       "name": {
+        "en": "Motion Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_battery",
+        "alarm_motion"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "zigbee": {
+        "manufacturerName": "_TYZB01_dr6sduka",
+        "productId": "TS0202",
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1024,
+              1030,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/motion-sensor/assets/learn.svg",
+          "instruction": {
+            "en": "Press the button for 5s then release."
+          }
+        }
+      },
+      "images": {
+        "small": "/drivers/motion-sensor/assets/images/small.png",
+        "large": "/drivers/motion-sensor/assets/images/large.png",
+        "xlarge": "/drivers/motion-sensor/assets/images/xlarge.png"
+      },
+      "id": "motion-sensor",
+      "settings": [
+        {
+          "id": "alarm_motion_reset_window",
+          "type": "number",
+          "label": {
+            "en": "Disable motion alarm after"
+          },
+          "hint": {
+            "en": "This setting will disable the motion alarm after the given time (in seconds) has expired after the last motion has been detected. Every time motion is observed by the device it will reset this timeout.\nRange: 60 - 86400, default: 300 [s]"
+          },
+          "value": 60,
+          "attr": {
+            "min": 60,
+            "max": 86400
+          }
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Expert settings",
+            "nl": "Expert instellingen"
+          },
+          "collapsed": true,
+          "children": [
+            {
+              "id": "hacked_alarm_motion_reset_window",
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Hacked sensor"
+              },
+              "hint": {
+                "en": "By soldering two contact points on the PCB it's possible to reduce the motion blind time to 5 seconds instead of the minimum 60 seconds. Enabling this setting will allow you to override the minimum of 60 seconds for cancelling the alarm and will set it to 5 seconds."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": {
         "en": "Smoke Sensor"
       },
       "class": "sensor",
@@ -91,8 +178,6 @@
               1280
             ],
             "bindings": [
-              0,
-              1,
               1280
             ]
           }
@@ -110,6 +195,184 @@
         "xlarge": "/drivers/smoke-sensor/assets/images/xlarge.png"
       },
       "id": "smoke-sensor"
+    },
+    {
+      "name": {
+        "en": "Temperature and Humidity Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_humidity",
+        "measure_temperature",
+        "alarm_battery",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "zigbee": {
+        "manufacturerName": "_TZ3000_j5fbnjeh",
+        "productId": "TS0201",
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1026,
+              1029
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/temperature-and-humidity-sensor/assets/learn.svg",
+          "instruction": {
+            "en": "Press the button for 5s then release."
+          }
+        }
+      },
+      "images": {
+        "small": "/drivers/temperature-and-humidity-sensor/assets/images/small.png",
+        "large": "/drivers/temperature-and-humidity-sensor/assets/images/large.png",
+        "xlarge": "/drivers/temperature-and-humidity-sensor/assets/images/xlarge.png"
+      },
+      "id": "temperature-and-humidity-sensor",
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "temperature_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Temperature reporting"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report temperature value with 1 decimal (22.1 °C)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report temperature value with 2 decimals (22.07 °C)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          },
+          "units": {
+            "en": "%",
+            "nl": "%"
+          }
+        },
+        {
+          "id": "humidity_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Humidity reporting"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report humidity value with 1 decimal (65.3 %)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report humidity value with 2 decimals (65.34 %)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Water Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_battery",
+        "alarm_battery",
+        "alarm_water"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "zigbee": {
+        "manufacturerName": "_TYZB01_zpvdava8",
+        "productId": "TS0207",
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/water-sensor/assets/learn.svg",
+          "instruction": {
+            "en": "Press the button for 5s then release."
+          }
+        }
+      },
+      "images": {
+        "small": "/drivers/water-sensor/assets/images/small.png",
+        "large": "/drivers/water-sensor/assets/images/large.png",
+        "xlarge": "/drivers/water-sensor/assets/images/xlarge.png"
+      },
+      "id": "water-sensor"
     }
   ]
 }

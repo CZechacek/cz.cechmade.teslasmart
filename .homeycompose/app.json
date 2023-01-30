@@ -1,5 +1,5 @@
 {
-  "id": "com.teslasmart",
+  "id": "cz.cechmade.teslasmart",
   "version": "1.0.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
@@ -15,7 +15,14 @@
   "category": [
     "lights"
   ],
-  "tags": { "en": ["tesla", "smart"] },
+  "tags": {
+    "en": [
+      "tesla",
+      "smart",
+      "light",
+      "sensor"
+    ]
+  },
   "permissions": [],
   "images": {
     "small": "/assets/images/small.png",

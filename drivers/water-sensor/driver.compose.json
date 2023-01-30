@@ -1,17 +1,16 @@
 {
   "name": {
-    "en": "Smoke Sensor"
+    "en": "Water Sensor"
   },
   "class": "sensor",
   "capabilities": [
     "measure_battery",
     "alarm_battery",
-    "alarm_smoke",
-    "alarm_tamper"
+    "alarm_water"
   ],
   "energy": {
     "batteries": [
-      "CR123A"
+      "CR2032"
     ]
   },
   "platforms": [
@@ -21,16 +20,13 @@
     "zigbee"
   ],
   "zigbee": {
-    "manufacturerName": "_TYZB01_qiplt4jq",
-    "productId": "TS0205",
+    "manufacturerName": "_TYZB01_zpvdava8",
+    "productId": "TS0207",
     "endpoints": {
       "1": {
         "clusters": [
           0,
           1,
-          1280
-        ],
-        "bindings": [
           1280
         ]
       }
